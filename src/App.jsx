@@ -4,6 +4,7 @@ import { format } from 'date-fns'
 import "react-day-picker/dist/style.css" 
 import ToDoList from './components/ToDoList.jsx'
 import Header from './components/Header.jsx'
+import TaskMenu from './components/TaskMenu.jsx'
 
 const css = `
 .my-today{
@@ -43,6 +44,7 @@ function App() {
         />
       </div>
       <div className='add-habits'>
+        <TaskMenu/>
         <h1> {footer} </h1>
         <ToDoList/>
       </div>
