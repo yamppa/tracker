@@ -1,71 +1,82 @@
-import React, { useState } from 'react'
-import "./ToDoList.css"
+import React, { useState, useEffect } from 'react';
+import "./ToDoList.css";
+import TaskMenu from './TaskMenu.jsx';
+import Cookies from 'js-cookie';
 
-function ToDoList() {
-  
-    const [tasks, setTasks] = useState([])
+function ToDoList(props) {
+    const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
+    const date = props.date && props.date.props.children;
+    
+    useEffect(() => {
+        if (date) {
+            // Load tasks from cookies when component mounts
+            const storedTasks = Cookies.get(date);
+            if (storedTasks) {
+                setTasks(JSON.parse(storedTasks));
+            } else {
+                // Clear tasks if there are no tasks stored for the selected date
+                setTasks([]);
+            }
+        }
+    }, [date]);
 
-    function handleinputChange(e) {
-        setNewTask(e.target.value)
+    useEffect(() => {
+        if (date) {
+            // Save tasks to cookies whenever tasks or date change
+            Cookies.set(date, JSON.stringify(tasks));
+        }
+    }, [tasks, date]);
+
+    function handleInputChange(e) {
+        setNewTask(e.target.value);
     }
+
     function addTask() {
-        if(newTask.trim() !== ""){    
+        if (newTask.trim() !== "") {
             setTasks(t => [...t, newTask]);
             setNewTask("");
         }
     }
+
     function deleteTask(index) {
         const updatedTasks = tasks.filter((_, i) => i !== index);
-        setTasks(updatedTasks)
+        setTasks(updatedTasks);
     }
-    function moveTaskUp(index) {
-        if (index > 0) {
-            const updatedTasks = [...tasks];
-            [updatedTasks[index], updatedTasks[index - 1]] = 
-            [updatedTasks[index - 1], updatedTasks[index]];
-            setTasks(updatedTasks);
-        }
-    }
-    function moveTaskDown(index) {
-        if (index < tasks.length - 1) {
-            const updatedTasks = [...tasks];
-            [updatedTasks[index], updatedTasks[index + 1]] = 
-            [updatedTasks[index + 1], updatedTasks[index]];
-            setTasks(updatedTasks);
-        }
-    }
-    return (
-    <div className='to-do-list'>
+
 
         
+    
 
-        <div>
-            <input className='to-do-input' type="text"
-            placeholder='Enter a task'
-            value={newTask}
-            onChange={handleinputChange} />
-            <button className='add-button'
-            onClick={addTask}>
-                Add
-            </button>
+    return (
+        <div className='to-do-list'>
+            <TaskMenu newTask={newTask} setNewTask={setNewTask} addTask={addTask} />
+
+            <div>
+                <h2>{props.date}</h2>
+                <input className='to-do-input' type="text"
+                    placeholder='Enter a task'
+                    value={newTask}
+                    onChange={handleInputChange} />
+                <button className='add-button'
+                    onClick={addTask}>
+                    Add
+                </button>
+            </div>
+
+            <ol className='to-list'>
+                {tasks.map((task, index) =>
+                    <li className='do-list' key={index}>
+                        <span className='text'>{task}</span>
+                        <div className='buttons'>
+                            <button className='done-button' onClick={() => deleteTask(index)}>Done</button>
+                            
+                        </div>
+                    </li>
+                )}
+            </ol>
         </div>
-
-        <ol className='to-list'>
-            {tasks.map((task, index) =>
-            <li className='do-list' key={index}>
-                <span className='text'>{task}</span>
-                <div className='buttons'>
-                    <button className='done-button' onClick={ () => deleteTask(index)}>Done</button>
-                    {/* <button className='move-button' onClick={ () => moveTaskUp(index)}>up</button>
-                    <button className='move-button' onClick={ () => moveTaskDown(index)}>Down</button> */}
-                </div>
-            </li>
-            )}
-        </ol>
-
-    </div>
-  )
+    );
 }
 
-export default ToDoList
+export default ToDoList;

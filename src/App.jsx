@@ -6,6 +6,7 @@ import ToDoList from './components/ToDoList.jsx'
 import Header from './components/Header.jsx'
 import TaskMenu from './components/TaskMenu.jsx'
 
+
 const css = `
 .my-today{
   color:red
@@ -21,9 +22,9 @@ const css = `
 function App() {
   const [selected, setSelected] = useState()
   
-  let footer = <p>please pick a day</p>
+  let date = <p>please pick a day</p>
   if (selected) {
-    footer = <p> {format(selected, "dd.MM.yyyy")} </p>
+    date = <p className='title-date'> {format(selected, "dd.MM.yyyy")} </p>
   }
 
   return (
@@ -44,9 +45,11 @@ function App() {
         />
       </div>
       <div className='add-habits'>
-        <TaskMenu/>
-        <h1> {footer} </h1>
-        <ToDoList/>
+        {/* <TaskMenu selected={date}/> */}
+        <ToDoList 
+        date={date}
+        selected={selected}
+        />
       </div>
       
       

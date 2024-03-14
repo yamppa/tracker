@@ -23,9 +23,12 @@ ul {
   /* <nav> */
   .navbar {
     height: var(--nav-size);
-    background-color: var(--bg);
+    background-color: hwb(0 11% 89%);
     padding: 0 1rem;
-    border-bottom: var(--border);
+    /* border-bottom: var(--border); */
+    display: flex;
+    width: 50px;
+    border-radius: 20px;
   }
   
   /* <ul> */
@@ -74,7 +77,7 @@ ul {
   
   .dropdown {
     position:absolute;
-    top: 40%;
+    top:35%;
     width: 40%;
     transform: translateX(45%);
     background-color: var(--bg);
@@ -140,9 +143,9 @@ ul {
     transform: translateX(0%);
     transition: all var(--speed) ease;
   }
-  .menu-secondary-exit {
+/*   .menu-secondary-exit {
   
-  }
+  } */
   .menu-secondary-exit-active {
     transform: translateX(110%);
     transition: all var(--speed) ease;

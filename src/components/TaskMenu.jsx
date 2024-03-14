@@ -6,11 +6,16 @@ import { CSSTransition } from 'react-transition-group';
 
 function TaskMenu() {
   return (
+    <>
+   
     <Navbar>
+    
       <NavItem icon="➕">
-        <DropdownMenu></DropdownMenu>
+        <DropdownMenu ></DropdownMenu>
       </NavItem>
+      
     </Navbar>
+    </>
   );
 }
 
@@ -40,7 +45,7 @@ function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
-
+  
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
   }, [])
@@ -51,6 +56,7 @@ function DropdownMenu() {
   }
 
   function DropdownItem(props) {
+    
     return (
       <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
         <span className="icon-button">{props.leftIcon}</span>
@@ -59,7 +65,7 @@ function DropdownMenu() {
       </a>
     );
   }
-
+  
   return (
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
 
@@ -106,7 +112,7 @@ function DropdownMenu() {
           <DropdownItem goToMenu="main" leftIcon="<">
             <h2>Physical</h2>
           </DropdownItem>
-          <DropdownItem leftIcon="">Exercise</DropdownItem>
+          <DropdownItem leftIcon=""  >Exercise</DropdownItem>
           <DropdownItem leftIcon="">Hygiene</DropdownItem>
           <DropdownItem leftIcon="">Sleep</DropdownItem>
           <DropdownItem leftIcon="">Nutrition</DropdownItem>
