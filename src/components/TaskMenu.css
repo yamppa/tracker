@@ -77,13 +77,14 @@ ul {
   
   .dropdown {
     position:absolute;
-    top:35%;
+    top:40%;
     width: 40%;
     transform: translateX(45%);
     background-color: var(--bg);
     border: var(--border);
     border-radius: var(--border-radius);
     padding: 1rem;
+    padding-right: 2rem;
     overflow: hidden;
     transition: height var(--speed) ease;
   }
@@ -91,18 +92,35 @@ ul {
   .menu {
     width: 100%;
   }
-  
-  .menu-item {
-    height: 50px;
+  .dropdown-button{
+    height: 100%;
     display: flex;
+    background-color: transparent;
     align-items: center;
     border-radius: var(--border-radius);
     transition: background var(--speed);
     padding: 0.5rem;
   }
+  .dropdown-button:hover{
+    border: none;
+  }
+  .dropdown-button:focus,
+  .dropdown-button:focus-visible {
+    outline: none; 
+  }
+  .menu-item {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius);
+    transition: background var(--speed);
+    padding: 0.5rem;
+    
+  }
   
   .menu-item .icon-button {
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
   }
   
   
@@ -119,7 +137,7 @@ ul {
   }
   
   /* CSSTransition classes  */
-  .menu-primary-enter {
+/*   .menu-primary-enter {
     position: absolute;
     transform: translateX(-110%);
   }
@@ -146,7 +164,9 @@ ul {
 /*   .menu-secondary-exit {
   
   } */
-  .menu-secondary-exit-active {
+ /*  .menu-secondary-exit-active {
     transform: translateX(110%);
     transition: all var(--speed) ease;
   }
+ */ 
+  

@@ -45,7 +45,7 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto -webkit-focus-ring-color; 
 }
 
 @media (prefers-color-scheme: light) {
@@ -82,3 +82,14 @@ button:focus-visible {
 .date-picker{
   min-width: 35%;
 }
+
+@media (max-width: 1024px)  {
+  .app {
+      display: block;
+      margin-left: 1rem;
+      margin-right: 1rem;
+  }
+  .add-habits{
+    margin-left: 0;
+  }
+}  

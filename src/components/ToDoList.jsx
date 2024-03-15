@@ -32,11 +32,10 @@ function ToDoList(props) {
         setNewTask(e.target.value);
     }
 
-    function addTask() {
-        if (newTask.trim() !== "") {
-            setTasks(t => [...t, newTask]);
-            setNewTask("");
-        }
+    function addTask(taskValue) {
+        setTasks(t => [...t, taskValue]);
+        setNewTask("");
+        
     }
 
     function deleteTask(index) {
@@ -50,18 +49,18 @@ function ToDoList(props) {
 
     return (
         <div className='to-do-list'>
-            <TaskMenu newTask={newTask} setNewTask={setNewTask} addTask={addTask} />
+            <TaskMenu addTask={addTask} />
 
             <div>
                 <h2>{props.date}</h2>
-                <input className='to-do-input' type="text"
+                {/* <input className='to-do-input' type="text"
                     placeholder='Enter a task'
                     value={newTask}
                     onChange={handleInputChange} />
                 <button className='add-button'
                     onClick={addTask}>
                     Add
-                </button>
+                </button> */}
             </div>
 
             <ol className='to-list'>
@@ -75,6 +74,7 @@ function ToDoList(props) {
                     </li>
                 )}
             </ol>
+            <button onClick={ () => addTask("hehe") }>hehe</button>
         </div>
     );
 }

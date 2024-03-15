@@ -4,14 +4,16 @@ import './TaskMenu.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
-function TaskMenu() {
+function TaskMenu({addTask}) {
+  const [open, setOpen] = useState(false);
+  
   return (
     <>
    
     <Navbar>
     
-      <NavItem icon="➕">
-        <DropdownMenu ></DropdownMenu>
+      <NavItem icon="➕" open={open} setOpen={setOpen}>
+        <DropdownMenu addTask={addTask} open={open} setOpen={setOpen}/>
       </NavItem>
       
     </Navbar>
@@ -27,21 +29,21 @@ function Navbar(props) {
   );
 }
 
-function NavItem(props) {
-  const [open, setOpen] = useState(false);
-
+function NavItem({ icon, children, open, setOpen }) {
+  
+  
   return (
     <li className="nav-item">
       <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
-        {props.icon}
+        {icon}
       </a>
 
-      {open && props.children}
+      {open &&children}
     </li>
   );
 }
 
-function DropdownMenu() {
+function DropdownMenu( {addTask, open, setOpen}) {
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
@@ -56,7 +58,6 @@ function DropdownMenu() {
   }
 
   function DropdownItem(props) {
-    
     return (
       <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
         <span className="icon-button">{props.leftIcon}</span>
@@ -64,14 +65,15 @@ function DropdownMenu() {
         <span className="icon-right">{props.rightIcon}</span>
       </a>
     );
-  }
+  }  
+
   
   return (
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
 
       <CSSTransition
         in={activeMenu === 'main'}
-        timeout={500}
+        /* timeout={500} */
         classNames="menu-primary"
         unmountOnExit
         onEnter={calcHeight}>
@@ -104,7 +106,7 @@ function DropdownMenu() {
 
       <CSSTransition
         in={activeMenu === 'physical'}
-        timeout={500}
+        /* timeout={500} */
         classNames="menu-secondary"
         unmountOnExit
         onEnter={calcHeight}>
@@ -112,16 +114,73 @@ function DropdownMenu() {
           <DropdownItem goToMenu="main" leftIcon="<">
             <h2>Physical</h2>
           </DropdownItem>
-          <DropdownItem leftIcon=""  >Exercise</DropdownItem>
+          <DropdownItem 
+          
+          leftIcon="" 
+          goToMenu="exercise"
+          className="menu"
+          
+          
+           >Exercise</DropdownItem>
           <DropdownItem leftIcon="">Hygiene</DropdownItem>
           <DropdownItem leftIcon="">Sleep</DropdownItem>
           <DropdownItem leftIcon="">Nutrition</DropdownItem>
         </div>
       </CSSTransition>
+      
+      <CSSTransition
+        in={activeMenu === 'exercise'}
+       /*  timeout={500} */
+        classNames="menu-third"
+        unmountOnExit
+        onEnter={calcHeight}>
+        <div className="menu-secondary">
+          <DropdownItem goToMenu="physical" leftIcon="" rightIcon="">
+            <h2>Exercise</h2>
+          </DropdownItem>
+          <DropdownItem 
+            leftIcon="">
+               <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Exercise");
+                  setOpen(false);}}
+                  >
+                Exercise
+                </button>
+          </DropdownItem>
+          <DropdownItem leftIcon="">
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Walk");
+                  setOpen(false) }}
+                  >
+                Walk
+                </button>
+          </DropdownItem>
+          <DropdownItem leftIcon="">
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Gym");
+                  setOpen(false) }}
+                  >
+                Gym
+                </button>
+          </DropdownItem>
+          <DropdownItem leftIcon="">
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Sports");
+                  setOpen(false) }}
+                  >
+                Sports
+                </button>
+          </DropdownItem>
+        </div>
+      </CSSTransition>
 
       <CSSTransition
         in={activeMenu === 'mental'}
-        timeout={500}
+       /*  timeout={500} */
         classNames="menu-secondary"
         unmountOnExit
         onEnter={calcHeight}>
@@ -138,7 +197,7 @@ function DropdownMenu() {
 
       <CSSTransition
         in={activeMenu === 'growth'}
-        timeout={500}
+       /*  timeout={500} */
         classNames="menu-secondary"
         unmountOnExit
         onEnter={calcHeight}>
@@ -149,13 +208,13 @@ function DropdownMenu() {
           <DropdownItem leftIcon="🦘"></DropdownItem>
           <DropdownItem leftIcon="🐸"></DropdownItem>
           <DropdownItem leftIcon="🦋"></DropdownItem>
-          <DropdownItem leftIcon="🦔"></DropdownItem>
+          <DropdownItem leftIcon="🦔"> <button>hehe</button> </DropdownItem>
         </div>
       </CSSTransition>
 
       <CSSTransition
         in={activeMenu === 'study'}
-        timeout={500}
+       /*  timeout={500} */
         classNames="menu-secondary"
         unmountOnExit
         onEnter={calcHeight}>
