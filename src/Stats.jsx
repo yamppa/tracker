@@ -1,11 +1,15 @@
 import React from 'react'
 import Header from './components/Header'
+import Cookies from 'js-cookie'
 
 function Stats() {
+
   return (
     <>
     <Header/>
-    <div>Stats</div>
+    <div>
+      
+    </div>
     </>
   )
 }

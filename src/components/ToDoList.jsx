@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./ToDoList.css";
 import TaskMenu from './TaskMenu.jsx';
 import Cookies from 'js-cookie';
+import IconCheckmark from './icons/IconChechmark.jsx';
 
 function ToDoList(props) {
     const [tasks, setTasks] = useState([]);
@@ -53,14 +54,7 @@ function ToDoList(props) {
 
             <div>
                 <h2>{props.date}</h2>
-                {/* <input className='to-do-input' type="text"
-                    placeholder='Enter a task'
-                    value={newTask}
-                    onChange={handleInputChange} />
-                <button className='add-button'
-                    onClick={addTask}>
-                    Add
-                </button> */}
+                
             </div>
 
             <ol className='to-list'>
@@ -68,13 +62,14 @@ function ToDoList(props) {
                     <li className='do-list' key={index}>
                         <span className='text'>{task}</span>
                         <div className='buttons'>
-                            <button className='done-button' onClick={() => deleteTask(index)}>Done</button>
+                            <button className='done-button' onClick={() => deleteTask(index)}><IconCheckmark/></button>
                             
                         </div>
                     </li>
                 )}
             </ol>
-            <button onClick={ () => addTask("hehe") }>hehe</button>
+            
+            
         </div>
     );
 }

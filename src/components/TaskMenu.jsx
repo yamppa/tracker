@@ -1,8 +1,10 @@
 import './TaskMenu.css';
-
-
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import IconMentalHealth from './icons/IconMentalHealth';
+import IconBody from './icons/IconBody';
+import IconArrowBackOutline from './icons/IconArrowBackOutline';
+import IconAddSmall from './icons/IconAddSmall';
 
 function TaskMenu({addTask}) {
   const [open, setOpen] = useState(false);
@@ -12,7 +14,7 @@ function TaskMenu({addTask}) {
    
     <Navbar>
     
-      <NavItem icon="➕" open={open} setOpen={setOpen}>
+      <NavItem icon={<IconAddSmall/>} open={open} setOpen={setOpen}>
         <DropdownMenu addTask={addTask} open={open} setOpen={setOpen}/>
       </NavItem>
       
@@ -79,11 +81,11 @@ function DropdownMenu( {addTask, open, setOpen}) {
         onEnter={calcHeight}>
         <div className="menu">
           <DropdownItem
-            leftIcon= "💪"
+            leftIcon={<IconBody/>}
             goToMenu="physical">
             Physical Health</DropdownItem>
           <DropdownItem
-            leftIcon="Ⓜ"
+            leftIcon={<IconMentalHealth/>}
             rightIcon=""
             goToMenu="mental">
             Mental Health
@@ -117,7 +119,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon="<">
+          <DropdownItem goToMenu="main" leftIcon={<IconArrowBackOutline/>}>
             <h2>Physical Health</h2>
           </DropdownItem>
           <DropdownItem 
@@ -161,7 +163,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu-secondary">
-          <DropdownItem goToMenu="physical" leftIcon="" rightIcon="">
+          <DropdownItem goToMenu="physical" leftIcon={<IconArrowBackOutline/>} rightIcon="">
             <h2>Exercise</h2>
           </DropdownItem>
           <DropdownItem 
@@ -211,7 +213,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu-secondary">
-          <DropdownItem goToMenu="physical" leftIcon="" rightIcon="">
+          <DropdownItem goToMenu="physical" leftIcon={<IconArrowBackOutline/>} rightIcon="">
             <h2>Hygiene</h2>
           </DropdownItem>
           <DropdownItem 
@@ -261,7 +263,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu-secondary">
-          <DropdownItem goToMenu="physical" leftIcon="" rightIcon="">
+          <DropdownItem goToMenu="physical" leftIcon={<IconArrowBackOutline/>} rightIcon="">
             <h2>Sleep</h2>
           </DropdownItem>
           <DropdownItem 
@@ -285,7 +287,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu-secondary">
-          <DropdownItem goToMenu="physical" leftIcon="" rightIcon="">
+          <DropdownItem goToMenu="physical" leftIcon={<IconArrowBackOutline/>} rightIcon="">
             <h2>Nutrition</h2>
           </DropdownItem>
           <DropdownItem 
@@ -326,7 +328,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu-secondary">
-          <DropdownItem goToMenu="physical" leftIcon="" rightIcon="">
+          <DropdownItem goToMenu="physical" leftIcon={<IconArrowBackOutline/>} rightIcon="">
             <h2>Limit</h2>
           </DropdownItem>
           <DropdownItem 
@@ -387,7 +389,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon="<">
+          <DropdownItem goToMenu="main" leftIcon={<IconArrowBackOutline/>}>
             <h2>Mental</h2>
           </DropdownItem>
           <DropdownItem leftIcon="">Mindfullnes</DropdownItem>
@@ -405,7 +407,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon="<">
+          <DropdownItem goToMenu="main" leftIcon={<IconArrowBackOutline/>}>
             <h2>Growth</h2>
           </DropdownItem>
           <DropdownItem leftIcon="">Self improvement</DropdownItem>
@@ -423,7 +425,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon="<">
+          <DropdownItem goToMenu="main" leftIcon={<IconArrowBackOutline/>}>
             <h2>Productivity</h2>
           </DropdownItem>
           <DropdownItem 
@@ -455,7 +457,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu-secondary">
-          <DropdownItem goToMenu="productivity" leftIcon="" rightIcon="">
+          <DropdownItem goToMenu="productivity" leftIcon={<IconArrowBackOutline/>} rightIcon="">
             <h2>Habits</h2>
           </DropdownItem>
           <DropdownItem 
@@ -504,6 +506,49 @@ function DropdownMenu( {addTask, open, setOpen}) {
                   setOpen(false) }}
                   >
                 Make your bed
+                </button>
+                </DropdownItem>
+            </div>
+          </CSSTransition>
+          
+          <CSSTransition
+        in={activeMenu === 'finance'}
+       /*  timeout={500} */
+        classNames="menu-third"
+        unmountOnExit
+        onEnter={calcHeight}>
+        <div className="menu-secondary">
+          <DropdownItem goToMenu="productivity" 
+          leftIcon={<IconArrowBackOutline/>}
+          rightIcon="">
+            <h2>Personal Finance</h2>
+          </DropdownItem>
+          <DropdownItem 
+            leftIcon="">
+               <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Pay bills");
+                  setOpen(false);}}
+                  >
+                Pay bills
+                </button>
+          </DropdownItem>
+          <DropdownItem leftIcon="">
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Shopping list");
+                  setOpen(false) }}
+                  >
+                Shopping list
+                </button>
+          </DropdownItem>
+          <DropdownItem leftIcon="">
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Budget planning");
+                  setOpen(false) }}
+                  >
+                Budget planning
                 </button>
           </DropdownItem>
         </div>
