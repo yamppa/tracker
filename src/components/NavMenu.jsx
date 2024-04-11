@@ -78,14 +78,14 @@ function DropdownMenu({handleClick}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu-menu">
-          <Link to='/' onClick={handleClick}>
+          <Link to='/tracker/' onClick={handleClick}>
           <DropdownItem
             leftIcon= ""
             >
             Calendar 
           </DropdownItem>
           </Link>
-          <Link to='/stats' onClick={handleClick}>
+          <Link to='/tracker/stats' onClick={handleClick}>
           <DropdownItem
             leftIcon=""
             rightIcon=""
@@ -93,7 +93,7 @@ function DropdownMenu({handleClick}) {
             Stats
           </DropdownItem>
           </Link>
-          <Link to='/about' onClick={handleClick}>
+          <Link to='/tracker/about' onClick={handleClick}>
           <DropdownItem
             leftIcon=""
             rightIcon=""

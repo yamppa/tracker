@@ -10,16 +10,9 @@ function App() {
 
   return (
     <>
-      <Router>
-          <Header/>
-          <Routes>
-            <Route path='/stats' element={<Stats/>} />
-            <Route path='/about' element={<About/>} />
-            <Route path='/' element={<Homepage/>} />
-            
-          </Routes>
-          
-      </Router>
+      
+    <Header/>
+    <Homepage/>
     
     
     

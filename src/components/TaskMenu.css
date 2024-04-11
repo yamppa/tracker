@@ -95,6 +95,7 @@ ul {
   .dropdown-button{
     height: 100%;
     display: flex;
+    width: 100%;
     background-color: transparent;
     align-items: center;
     border-radius: var(--border-radius);
