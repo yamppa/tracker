@@ -4,7 +4,7 @@
     grid-template-columns: auto auto auto auto auto auto auto;
     grid-template-rows: 40px 200px;
     gap: 5px;
-    background-color: #213547;
+    background-color: #242424;
     padding: 5px;
     border-radius: 10px;
     margin-top: 2rem;
@@ -16,7 +16,7 @@
     outline: 10px;
     outline-color: black;
     text-align: center;
-    background-color: #242424;
+    background-color: #213547;
     border-radius: 10px;
     text-align: center;
     font-size: large;
@@ -24,10 +24,10 @@
   }
   
 .grid-tasks {
-  background-color: #242424;
+  background-color: #213547;
   border-radius: 10px;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 18px;
   font-size: medium;
   font: weight 200px; ;
   height: 200px;
@@ -37,5 +37,5 @@
   display: block;
   
   align-items: center;
-  width: 1000px;
+  width: 1200px;
 }
