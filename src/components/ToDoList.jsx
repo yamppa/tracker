@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import "./ToDoList.css";
 import TaskMenu from './TaskMenu.jsx';
-import Cookies from 'js-cookie';
 import IconCheckmark from './icons/IconChechmark.jsx';
+import Weekly from './Weekly.jsx';
 
 function ToDoList(props) {
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
-    const date = props.date && props.date.props.children;
-    
+    const date = props.date 
+    const selected = props.selected
+  
     useEffect(() => {
         if (date) {
-            // Load tasks from cookies when component mounts
-            const storedTasks = Cookies.get(date);
+            
+            const storedTasks = localStorage.getItem(date);
             if (storedTasks) {
                 setTasks(JSON.parse(storedTasks));
+                
             } else {
-                // Clear tasks if there are no tasks stored for the selected date
                 setTasks([]);
-            }
+            } 
         }
     }, [date]);
 
     useEffect(() => {
         if (date) {
-            // Save tasks to cookies whenever tasks or date change
-            Cookies.set(date, JSON.stringify(tasks));
+            localStorage.setItem(date, JSON.stringify(tasks));
         }
     }, [tasks, date]);
 
@@ -34,43 +34,47 @@ function ToDoList(props) {
     }
 
     function addTask(taskValue) {
-        setTasks(t => [...t, taskValue]);
+        setTasks(prevTasks => [...prevTasks, taskValue]);
         setNewTask("");
-        
+        console.log(tasks) 
+        localStorage.setItem(date, JSON.stringify([...tasks, taskValue]));
+         
     }
 
     function deleteTask(index) {
         const updatedTasks = tasks.filter((_, i) => i !== index);
         setTasks(updatedTasks);
+        localStorage.setItem(date, JSON.stringify(updatedTasks));
     }
-
-
-        
     
 
     return (
+        <>
         <div className='to-do-list'>
+            
             <TaskMenu addTask={addTask} />
 
-            <div>
-                <h2>{props.date}</h2>
-                
-            </div>
+            
+                              
+        
 
             <ol className='to-list'>
                 {tasks.map((task, index) =>
                     <li className='do-list' key={index}>
                         <span className='text'>{task}</span>
                         <div className='buttons'>
-                            <button className='done-button' onClick={() => deleteTask(index)}><IconCheckmark/></button>
-                            
+                            <button className='done-button' onClick={() => deleteTask(index)}><IconCheckmark/></button>                            
+                            <button className='delete-button' onClick={() => deleteTask(index)}>Delete</button>
                         </div>
+
                     </li>
                 )}
             </ol>
-            
-            
         </div>
+        <div className='weekly'>
+            <Weekly selected={selected} tasks={tasks} date={date} />
+        </div>
+        </>
     );
 }
 

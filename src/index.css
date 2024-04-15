@@ -48,24 +48,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color; 
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+
+
 .app {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding: 2rem;
   margin-left: 10rem;
   margin-right: 10rem;
+  justify-content: center
   
   
 }
@@ -73,6 +65,8 @@ button:focus-visible {
   font-size: 2rem;
 }
 .add-habits {
+  display: block;
+  align-items: flex-start;
   width: 60%;
   text-align: center;
   background-color: hwb(0 11% 89%);

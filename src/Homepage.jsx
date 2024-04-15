@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { DayPicker } from 'react-day-picker'
 import { format } from 'date-fns'
 import "react-day-picker/dist/style.css" 
 import ToDoList from './components/ToDoList.jsx'
-import Header from './components/Header.jsx'
+
+
+
 
 const css = `
 .my-today{
@@ -20,13 +22,28 @@ const css = `
 function Homepage() {
   const [selected, setSelected] = useState()
   
-  let date = <p>please pick a day</p>
+  
+  
+  let date = <p>Pick a date</p>
   if (selected) {
     date = <p className='title-date'> {format(selected, "dd.MM.yyyy")} </p>
   }
+  const dateString = date.props.children[1];
+  
+  useEffect(() => {
+    console.log(dateString);
+    
+    const storedTasks = localStorage.getItem(dateString);
+    console.log("Stored tasks:", storedTasks);
+  }, [dateString]);
+  
 
   return (
     <>
+    <div className='title'>
+      <h2>{date}</h2>
+    </div>
+    
     <div className='app'>
       <div className='date-picker'>
           <style> {css} </style>
@@ -41,16 +58,19 @@ function Homepage() {
           showOutsideDays
         />
       </div>
-      <div className='add-habits'>
-        {/* <TaskMenu selected={date}/> */}
+      
+        
         <ToDoList 
-        date={date}
+        date={dateString}
         selected={selected}
+        
         />
-      </div>
+      
+      
       
       
     </div>
+    
     </>
   )
 }

@@ -1,3 +1,5 @@
+
+
 .to-do-input{
     font-size: 1rem;
     padding: 7px;
@@ -7,11 +9,14 @@
 .to-list {
     padding: 0 ;
     list-style: none;
+    overflow: auto;
+    ;
+    
   }
 .do-list{
     font-size: 1.3rem;
     margin-bottom: 0px;
-    
+    ;
     padding: 3px;
     border-radius: 10px;
     
@@ -26,7 +31,12 @@
   .done-button{
     background-color: #213547ce;
     font-size: 0.75rem;
-    margin-left: 10px;
+    margin-left: 100px ;
+  }
+  .delete-button{
+    background-color: #213547ce;
+    font-size: 0.75rem;
+    margin-left: 4px;
   }
   .move-button {
     font-size: 0.75rem;
@@ -37,4 +47,22 @@
     display: inline;
     float: right;
     
+}
+.to-do-list {
+  width: 500px;
+  background-color: hwb(0 11% 89%);
+  height: 350px;
+  overflow: auto;
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-between;
+  
+}
+.weekly {
+  display: inline-block;
+}
+.title {
+  text-align: center;
+  
+  
 }

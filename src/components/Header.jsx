@@ -10,7 +10,7 @@ function Header() {
   return (
     <div className='header' id='myHeader'>
         
-        <h1 className='title'>Habit@</h1>
+        <h1 className='title'>Routinix</h1>
         <NavMenu/>
         
     </div>
