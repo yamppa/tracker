@@ -79,12 +79,12 @@ ul {
     /* Remove fixed positioning */
     position: absolute;
     /* Use top and left properties to position the menu */
-    top: 41%; /* Position the menu at the center of the screen vertically */
-    left: 47%; /* Position the menu at the center of the screen horizontally */
+    top: 380px; /* Position the menu at the center of the screen vertically */
+    left: 46.5%; /* Position the menu at the center of the screen horizontally */
     transform: translate(-50%, -50%); /* Center the menu precisely */
     /* Other styles */
     width: 20%; /* Adjust the width as needed */
-    max-width: 700px; /* Set a maximum width if necessary */
+    max-width: 800px; /* Set a maximum width if necessary */
     background-color: var(--bg);
     border: var(--border);
     border-radius: var(--border-radius);
@@ -150,7 +150,7 @@ ul {
   .add-tasks-title {
     font-weight: bold;
     font-size: large;
-    padding-left: 40%;
+    padding-left: 35%;
   }
   .close-button {
     text-align:center;
@@ -162,6 +162,7 @@ ul {
     display: inline-block;
     font-weight: 600;
     letter-spacing: 0.7px;
+    margin-left: 20px;
 
   }
  

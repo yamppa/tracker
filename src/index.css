@@ -55,8 +55,8 @@ button:focus-visible {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 2rem;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 0vw;
+  margin-right: 0vw;
   justify-content: space-around;
   
   
