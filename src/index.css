@@ -87,3 +87,14 @@ button:focus-visible {
     margin-left: 0;
   }
 }  
+.the-date {
+  display: flex;
+  justify-content: end ;
+  height: 50px;
+  padding-right: 2rem;
+  margin-right: 18vw;
+
+  
+  
+
+}

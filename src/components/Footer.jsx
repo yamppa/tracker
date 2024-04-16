@@ -1,9 +1,9 @@
 import React from 'react'
 import './Footer.css'
-import fb from './icons/facebook.png'
-import twitter from './icons/twitter.png'
-import linkedin from './icons/linkedin.png'
-import instagram from './icons/instagram.png'
+import fb from './icons/socialmedia-icons/facebook.png'
+import twitter from './icons/socialmedia-icons/twitter.png'
+import linkedin from './icons/socialmedia-icons/linkedin.png'
+import instagram from './icons/socialmedia-icons/instagram.png'
 
 function Footer() {
   return (
@@ -12,37 +12,37 @@ function Footer() {
             <div className='sb__footer-links'>
                 <div className='sb__footer-links_div'>
                    <h4>For Business</h4> 
-                   <a href="/#">
+                   <a href="">
                         <p>Employer</p>
                     </a>
-                    <a href="/#">
+                    <a href="">
                         <p>Our Plan</p>
                     </a>
-                    <a href="/#">
+                    <a href="">
                         <p>Individual</p>
                     </a>
                 </div>
                 <div className='sb__footer-links_div'>
                     <h4>Resources</h4>
-                    <a href="/#">
+                    <a href="">
                         <p>Employ</p>
                     </a>
-                    <a href="/#">
+                    <a href="">
                         <p>Our Plan</p>
                     </a>
-                    <a href="/#">
+                    <a href="">
                         <p>Individual</p>
                     </a>
                 </div>
                 <div className='sb__footer-links_div'>
                     <h4>Partners</h4>
-                    <a href="/#">
+                    <a href="">
                         <p>Individual</p>
                     </a>
                 </div>
                 <div className='sb__footer-links_div'>
                     <h4>Information</h4>
-                    <a href="/tracker/about">
+                    <a href="">
                         <p>About</p>
                     </a>
                     <a href="/tracker/stats">
@@ -68,10 +68,10 @@ function Footer() {
             </p>
         </div>
         <div className='sb__footer-below-links'>
-            <a href="/tracker/about"><div><p>Terms & Conditioins</p></div></a>
-            <a href="/tracker/about"><div><p>Privacy</p></div></a>
-            <a href="/tracker/about"><div><p>Security</p></div></a>
-            <a href="/tracker/about"><div><p>Cookie Declaration</p></div></a>
+            <a href=""><div><p>Terms & Conditioins</p></div></a>
+            <a href=""><div><p>Privacy</p></div></a>
+            <a href=""><div><p>Security</p></div></a>
+            <a href=""><div><p>Cookie Declaration</p></div></a>
         </div>
      </div>
 

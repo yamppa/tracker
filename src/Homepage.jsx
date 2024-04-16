@@ -25,7 +25,7 @@ function Homepage() {
   
   
   
-  let date = <p>Pick a date</p>
+  let date = <p>Pick a date!</p>
   if (selected) {
     date = <p className='title-date'> {format(selected, "dd.MM.yyyy")} </p>
   }
@@ -41,9 +41,11 @@ function Homepage() {
 
   return (
     <>
-    
-    
+    <div className='the-date'>
+      <h2>{date}</h2>
+    </div>
     <div className='app'>
+      
       <div className='date-picker'>
           <style> {css} </style>
         <DayPicker
