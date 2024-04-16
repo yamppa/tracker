@@ -76,10 +76,15 @@ ul {
   /* Dropdown Menu */
   
   .dropdown {
-    position:absolute;
-    top:40%;
-    width: 40%;
-    transform: translateX(45%);
+    /* Remove fixed positioning */
+    position: absolute;
+    /* Use top and left properties to position the menu */
+    top: 41%; /* Position the menu at the center of the screen vertically */
+    left: 47%; /* Position the menu at the center of the screen horizontally */
+    transform: translate(-50%, -50%); /* Center the menu precisely */
+    /* Other styles */
+    width: 20%; /* Adjust the width as needed */
+    max-width: 700px; /* Set a maximum width if necessary */
     background-color: var(--bg);
     border: var(--border);
     border-radius: var(--border-radius);
@@ -88,6 +93,7 @@ ul {
     overflow: hidden;
     transition: height var(--speed) ease;
   }
+  
   
   .menu {
     width: 100%;
@@ -136,38 +142,26 @@ ul {
   .icon-right {
     margin-left: auto;
   }
-  
-  /* CSSTransition classes  */
-/*   .menu-primary-enter {
-    position: absolute;
-    transform: translateX(-110%);
+  .header-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .menu-primary-enter-active {
-    transform: translateX(0%);
-    transition: all var(--speed) ease;
+  .add-tasks-title {
+    font-weight: bold;
+    font-size: large;
+    padding-left: 40%;
   }
-  .menu-primary-exit {
-    position: absolute;
+  .close-button {
+    text-align:center;
+    vertical-align: middle;
+    padding: 1em 1.3em;
+    border-radius: 1rem;
+    line-height: 0px;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+
   }
-  .menu-primary-exit-active {
-    transform: translateX(-110%);
-    transition: all var(--speed) ease;
-  }
-  
-  
-  .menu-secondary-enter {
-    transform: translateX(110%);
-  }
-  .menu-secondary-enter-active {
-    transform: translateX(0%);
-    transition: all var(--speed) ease;
-  }
-/*   .menu-secondary-exit {
-  
-  } */
- /*  .menu-secondary-exit-active {
-    transform: translateX(110%);
-    transition: all var(--speed) ease;
-  }
- */ 
-  
+ 

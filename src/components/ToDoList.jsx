@@ -52,7 +52,7 @@ function ToDoList(props) {
         <>
         <div className='to-do-list'>
             
-            <TaskMenu addTask={addTask} />
+            <TaskMenu addTask={addTask} date={date} />
 
             
                               

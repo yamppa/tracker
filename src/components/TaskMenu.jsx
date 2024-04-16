@@ -5,8 +5,31 @@ import IconMentalHealth from './icons/IconMentalHealth';
 import IconBody from './icons/IconBody';
 import IconArrowBackOutline from './icons/IconArrowBackOutline';
 import IconAddSmall from './icons/IconAddSmall';
+import IconArrowsRotate from './icons/IconArrowsRotate';
+import IconBook from './icons/IconBook';
+import IconBrush from './icons/IconBrush';
+import IconButterflyOutline from './icons/IconButterflyOutline';
+import IconBxBed from './icons/IconBxBed';
+import IconBxDrink from './icons/IconBxDrink';
+import IconCandyOutline from './icons/IconCandyOutline';
+import IconCigarette from './icons/IconCigarette';
+import IconCoffee from './icons/IconCoffee';
+import IconCross1 from './icons/IconCross1';
+import IconFoodAppleOutline from './icons/IconFoodAppleOutline';
+import IconFrog from './icons/IconFrog';
+import IconJar from './icons/IconJar';
+import IconLocationFood from './icons/IconLocationFood';
+import IconMirror from './icons/IconMirror';
+import IconMobileScreen from './icons/IconMobileScreen';
+import IconNotebookEditOutline from './icons/IconNotebookEditOutline';
+import IconPeople from './icons/IconPeople';
+import IconShower from './icons/IconShower';
+import IconStock from './icons/IconStock';
+import IconWaterSharp from './icons/IconWaterSharp';
+import IconWeightLifter from './icons/IconWeightLifter';
+import IconMoneyBill1 from './icons/IconMoneyBill1';
 
-function TaskMenu({addTask}) {
+function TaskMenu({addTask, date}) {
   const [open, setOpen] = useState(false);
   
   return (
@@ -15,7 +38,7 @@ function TaskMenu({addTask}) {
     <Navbar>
     
       <NavItem icon={<IconAddSmall/>} open={open} setOpen={setOpen}>
-        <DropdownMenu addTask={addTask} open={open} setOpen={setOpen}/>
+        <DropdownMenu addTask={addTask} open={open} setOpen={setOpen} date={date} />
       </NavItem>
       
     </Navbar>
@@ -45,7 +68,7 @@ function NavItem({ icon, children, open, setOpen }) {
   );
 }
 
-function DropdownMenu( {addTask, open, setOpen}) {
+function DropdownMenu( {addTask, date, setOpen}) {
   const [activeMenu, setActiveMenu] = useState('main');
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
@@ -71,7 +94,8 @@ function DropdownMenu( {addTask, open, setOpen}) {
 
   
   return (
-    <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
+    <div 
+      className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
 
       <CSSTransition
         in={activeMenu === 'main'}
@@ -80,6 +104,11 @@ function DropdownMenu( {addTask, open, setOpen}) {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
+          <div className='header-item'>
+            
+            <p className='add-tasks-title'>{date}</p>
+            <button className='close-button' onClick={() => setOpen(false)}>close</button>
+          </div>
           <DropdownItem
             leftIcon={<IconBody/>}
             goToMenu="physical">
@@ -123,33 +152,33 @@ function DropdownMenu( {addTask, open, setOpen}) {
             <h2>Physical Health</h2>
           </DropdownItem>
           <DropdownItem 
-          leftIcon="" 
+          leftIcon={<IconWeightLifter/>}
           goToMenu="exercise"
           className="menu"
            >Exercise
            </DropdownItem>
           
           <DropdownItem 
-          leftIcon=""
+          leftIcon={<IconShower/>}
           goToMenu="hygiene"
           >
             Hygiene
           </DropdownItem>
           
           <DropdownItem 
-          leftIcon=""
+          leftIcon={<IconBxBed/>}
           goToMenu="sleep">
             Sleep
           </DropdownItem>
           
           <DropdownItem 
-          leftIcon=""
+          leftIcon={<IconLocationFood/>}
           goToMenu="nutrition">
             Nutrition
           </DropdownItem>
 
           <DropdownItem 
-          leftIcon=""
+          leftIcon={<IconCross1/>}
           goToMenu="limit">
             Limit
           </DropdownItem>
@@ -291,7 +320,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
             <h2>Nutrition</h2>
           </DropdownItem>
           <DropdownItem 
-            leftIcon="">
+            leftIcon={<IconJar/>} >
                <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Vitamins");
@@ -300,7 +329,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
                 Vitamins
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon= {<IconWaterSharp/>} >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Drink water");
@@ -309,7 +338,8 @@ function DropdownMenu( {addTask, open, setOpen}) {
                 Drink water
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconFoodAppleOutline/>}
+          >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Eat fruits/vegetables");
@@ -332,7 +362,8 @@ function DropdownMenu( {addTask, open, setOpen}) {
             <h2>Limit</h2>
           </DropdownItem>
           <DropdownItem 
-            leftIcon="">
+            leftIcon={<IconCoffee/>}
+            >
                <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Limit caffeine");
@@ -341,7 +372,8 @@ function DropdownMenu( {addTask, open, setOpen}) {
                 Caffeine
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconCigarette/>}
+          >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Limit nicotine");
@@ -350,7 +382,8 @@ function DropdownMenu( {addTask, open, setOpen}) {
                 Nicotine
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconBxDrink/>}
+          >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Limit Alcohol");
@@ -360,7 +393,8 @@ function DropdownMenu( {addTask, open, setOpen}) {
                 </button>
           </DropdownItem>
           
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconCandyOutline/>}
+          >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Limit sugar");
@@ -370,7 +404,7 @@ function DropdownMenu( {addTask, open, setOpen}) {
                 </button>
           </DropdownItem>
           
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconMobileScreen/>}>
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Limit screentime");
@@ -392,10 +426,10 @@ function DropdownMenu( {addTask, open, setOpen}) {
           <DropdownItem goToMenu="main" leftIcon={<IconArrowBackOutline/>}>
             <h2>Mental</h2>
           </DropdownItem>
-          <DropdownItem leftIcon="">Mindfullnes</DropdownItem>
-          <DropdownItem leftIcon="">Relationships</DropdownItem>
-          <DropdownItem leftIcon="">Self-awareness</DropdownItem>
-          <DropdownItem leftIcon="">Creative outlets</DropdownItem>
+          <DropdownItem leftIcon="" >Mindfulness</DropdownItem>
+          <DropdownItem leftIcon={<IconPeople/>}>Relationships</DropdownItem>
+          <DropdownItem leftIcon={<IconFrog/>} >Self-awareness</DropdownItem>
+          <DropdownItem leftIcon={<IconBrush/>} >Creative outlets</DropdownItem>
           <DropdownItem leftIcon="">Self worth</DropdownItem>
         </div>
       </CSSTransition>
@@ -410,11 +444,11 @@ function DropdownMenu( {addTask, open, setOpen}) {
           <DropdownItem goToMenu="main" leftIcon={<IconArrowBackOutline/>}>
             <h2>Growth</h2>
           </DropdownItem>
-          <DropdownItem leftIcon="">Self improvement</DropdownItem>
+          <DropdownItem leftIcon={<IconStock/>} >Self improvement</DropdownItem>
           <DropdownItem leftIcon="🐸">Goals</DropdownItem>
-          <DropdownItem leftIcon="🦋">Journaling</DropdownItem>
-          <DropdownItem leftIcon="🦋">Mindset</DropdownItem>
-          <DropdownItem leftIcon="🦔">Self-image </DropdownItem>
+          <DropdownItem leftIcon={<IconNotebookEditOutline/>} >Journaling</DropdownItem>
+          <DropdownItem leftIcon={<IconButterflyOutline/>} >Mindset</DropdownItem>
+          <DropdownItem leftIcon={<IconMirror/>}>Self-image </DropdownItem>
         </div>
       </CSSTransition>
 
@@ -433,16 +467,17 @@ function DropdownMenu( {addTask, open, setOpen}) {
             Chores
             </DropdownItem>
           <DropdownItem 
-          leftIcon="">
+          leftIcon={<IconBook/>}
+          >
             School/Work
             </DropdownItem>
           <DropdownItem 
-          leftIcon=""
+          leftIcon={<IconArrowsRotate/>}
           goToMenu="habits">
             Habits
             </DropdownItem>
           <DropdownItem 
-          leftIcon=""
+          leftIcon={<IconMoneyBill1/>}
           goToMenu="finance">
             Personal Finance
             </DropdownItem>

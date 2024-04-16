@@ -2,7 +2,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto;
-    grid-template-rows: 40px 200px;
+    grid-template-rows: 30px 200px;
     gap: 5px;
     background-color: #242424;
     padding: 5px;
@@ -37,5 +37,5 @@
   display: block;
   
   align-items: center;
-  width: 1200px;
+  width: 77vw;
 }

@@ -14,13 +14,14 @@
     
   }
 .do-list{
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin-bottom: 0px;
     ;
-    padding: 3px;
+    padding: 4px;
     border-radius: 10px;
     
     align-items: center;
+    
 }
 .add-button {
     margin-left: 15px;
@@ -30,12 +31,12 @@
   
   .done-button{
     background-color: #213547ce;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     margin-left: 100px ;
   }
   .delete-button{
     background-color: #213547ce;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     margin-left: 4px;
   }
   .move-button {
@@ -49,7 +50,8 @@
     
 }
 .to-do-list {
-  width: 500px;
+  width: 33%;
+  max-width: 400px;
   background-color: hwb(0 11% 89%);
   height: 350px;
   overflow: auto;

@@ -55,9 +55,9 @@ button:focus-visible {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 2rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
-  justify-content: center
+  margin-left: 5vw;
+  margin-right: 5vw;
+  justify-content: space-around;
   
   
 }
@@ -65,9 +65,9 @@ button:focus-visible {
   font-size: 2rem;
 }
 .add-habits {
-  display: block;
+  display: flex;
   align-items: flex-start;
-  width: 60%;
+  width: 80vw;
   text-align: center;
   background-color: hwb(0 11% 89%);
   border-radius: 20px;

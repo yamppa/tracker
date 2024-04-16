@@ -40,9 +40,7 @@ function Homepage() {
 
   return (
     <>
-    <div className='title'>
-      <h2>{date}</h2>
-    </div>
+    
     
     <div className='app'>
       <div className='date-picker'>
