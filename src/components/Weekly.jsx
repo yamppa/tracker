@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { format, addDays } from 'date-fns';
+import { format, addDays, subDays, startOfWeek, endOfWeek, isMonday, getDay, isToday } from 'date-fns';
 import "./Weekly.css";
 
 function Weekly({ selected }) {
-    const calculateWeekAhead = () => {
+    const [startDate, setStartDate] = useState(new Date());
+
+    const calculateWeekDates = (start) => {
         const weekDates = [];
-        if (selected) {
-            let currentDate = new Date(selected);
-            for (let i = 0; i < 7; i++) {
-                weekDates.push(currentDate);
-                currentDate = addDays(currentDate, 1);
-            }
+        const mondayOfWeek = startOfWeek(start, { weekStartsOn: 1 }); // Start from Monday
+        for (let i = 0; i < 7; i++) {
+            const currentDate = addDays(mondayOfWeek, i);
+            weekDates.push(currentDate);
         }
         return weekDates;
     };
 
-    const weekDates = calculateWeekAhead();
+    const weekDates = calculateWeekDates(startDate);
 
     const [tasks, setTasks] = useState([]);
 
@@ -32,8 +32,6 @@ function Weekly({ selected }) {
     };
 
     useEffect(() => {
-        let runs = 0;
-
         const fetchTasks = () => {
             const newTasks = weekDates.map(date => {
                 const dateString = format(date, "dd.MM.yyyy");
@@ -48,24 +46,40 @@ function Weekly({ selected }) {
 
         const interval = setInterval(() => {
             fetchTasks();
-            runs++;
-
-            if (runs >= 5) {
-                clearInterval(interval);
-            }
-        }, 10); 
+        }, 1); 
 
         return () => clearInterval(interval);
     }, [selected, weekDates, tasks]);
 
+    const goToLastWeek = () => {
+        const newStartDate = subDays(startOfWeek(startDate, { weekStartsOn: 1 }), 7); // Start from Monday
+        setStartDate(newStartDate);
+    };
+
+    const goToNextWeek = () => {
+        const newStartDate = addDays(startOfWeek(startDate, { weekStartsOn: 1 }), 7); // Start from Monday
+        setStartDate(newStartDate);
+    };
+
+    const goToThisWeek = () => {
+        setStartDate(new Date());
+    };
+
     return (
         <div className='gridbox'>
-            
+            <div className="navigation-buttons">
+                <button className='week-button' onClick={goToLastWeek}>Last Week</button>
+                <button className='week-button' onClick={goToThisWeek}>This Week</button>
+                <button className='week-button' onClick={goToNextWeek}>Next Week</button>
+            </div>
 
             <div className="grid-container">
                 {weekDates.map((date, index) => (
-                    <div className="grid-item" key={index}>
-                        {format(date, "dd.MM")}
+                    <div className={"grid-item" + (isToday(date) ? " today" : "")} key={index}>
+                        <div className="date-info">
+                            <div className="day-name">{format(date, "iiii")}</div>
+                            <div className="date">{format(date, "dd.MM")}</div>
+                        </div>
                         <div className='grid-tasks'>
                             <ul>
                                 {tasks[index] && tasks[index].map((task, taskIndex) => (

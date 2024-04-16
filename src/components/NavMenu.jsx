@@ -3,6 +3,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import IconMenu from './icons/IconMenu';
 import { Link } from 'react-router-dom';
+import IconCalendarEvent from './icons/IconCalendarEvent';
+import IconStatsChart from './icons/IconStatsChart';
+import IconAliwangwang from './icons/IconAliwangwang';
 
 function NavMenu( ) {
   const [open, setOpen] = useState(false);
@@ -61,7 +64,7 @@ function DropdownMenu({handleClick}) {
     
     return (
         <a href="#" className="menu-item-menu" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-          <span className="icon-button">{props.leftIcon}</span>
+          <span className="menu-icon-button">{props.leftIcon}</span>
           {props.children}
           <span className="icon-right">{props.rightIcon}</span>
         </a>
@@ -80,14 +83,14 @@ function DropdownMenu({handleClick}) {
         <div className="menu-menu">
           <Link to='/tracker/' onClick={handleClick}>
           <DropdownItem
-            leftIcon= ""
+            leftIcon= {<IconCalendarEvent/>}
             >
             Calendar 
           </DropdownItem>
           </Link>
           <Link to='/tracker/stats' onClick={handleClick}>
           <DropdownItem
-            leftIcon=""
+            leftIcon={<IconStatsChart/>}
             rightIcon=""
             >
             Stats
@@ -95,7 +98,7 @@ function DropdownMenu({handleClick}) {
           </Link>
           <Link to='/tracker/about' onClick={handleClick}>
           <DropdownItem
-            leftIcon=""
+            leftIcon={<IconAliwangwang/>}
             rightIcon=""
             >
             About

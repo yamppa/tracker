@@ -7,7 +7,7 @@
     background-color: #242424;
     padding: 5px;
     border-radius: 10px;
-    margin-top: 2rem;
+    margin-top: 2px;
     width: auto;
     
 
@@ -38,4 +38,21 @@
   
   align-items: center;
   width: 77vw;
+  margin-top: 2rem;
+}
+.date-info {
+  background-color: #213547;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.today{
+  color: red;
+}
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  
+}
+.week-button {
+  margin-left: 5px;
 }
