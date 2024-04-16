@@ -11,33 +11,33 @@ function Footer() {
         <div className='sb__footer footer-padding'>
             <div className='sb__footer-links'>
                 <div className='sb__footer-links_div'>
-                   <h4>For Business</h4> 
+                   <h4>Enhance</h4> 
                    <a href="">
-                        <p>Employer</p>
+                        <p>Your</p>
                     </a>
                     <a href="">
-                        <p>Our Plan</p>
+                        <p>Everyday</p>
                     </a>
                     <a href="">
-                        <p>Individual</p>
-                    </a>
-                </div>
-                <div className='sb__footer-links_div'>
-                    <h4>Resources</h4>
-                    <a href="">
-                        <p>Employ</p>
-                    </a>
-                    <a href="">
-                        <p>Our Plan</p>
-                    </a>
-                    <a href="">
-                        <p>Individual</p>
+                        <p>Life</p>
                     </a>
                 </div>
                 <div className='sb__footer-links_div'>
-                    <h4>Partners</h4>
+                    <h4>One</h4>
                     <a href="">
-                        <p>Individual</p>
+                        <p>Habit</p>
+                    </a>
+                    <a href="">
+                        <p>At</p>
+                    </a>
+                    <a href="">
+                        <p>a </p>
+                    </a>
+                </div>
+                <div className='sb__footer-links_div'>
+                    <h4>Time</h4>
+                    <a href="">
+                        <p>!</p>
                     </a>
                 </div>
                 <div className='sb__footer-links_div'>
@@ -64,7 +64,7 @@ function Footer() {
      <div className='sb__footer-below'>
         <div className='sb__footer-copyright'>
             <p>
-                @{new Date().getFullYear()} Jami Heinonen. All right reserved.
+                @{new Date().getFullYear()} Jami Heinonen
             </p>
         </div>
         <div className='sb__footer-below-links'>
