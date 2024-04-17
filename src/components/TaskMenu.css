@@ -64,12 +64,15 @@ ul {
   
   .icon-button:hover {
     filter: brightness(1.2);
+    
   }
   
   .icon-button svg { 
     fill: var(--text-color);
     width: 30px;
     height: 30px;
+    color: white;
+    
   }
   
   
@@ -124,6 +127,8 @@ ul {
     transition: background var(--speed);
     padding: 0.5rem;
     
+    
+    
   }
   
   .menu-item .icon-button {
@@ -150,12 +155,12 @@ ul {
   .add-tasks-title {
     font-weight: bold;
     font-size: large;
-    padding-left: 35%;
+    padding-left: 10%;
   }
   .close-button {
     text-align:center;
     vertical-align: middle;
-    padding: 1em 1.3em;
+    padding: 0.7em 1em 0.95em 1em;
     border-radius: 1rem;
     line-height: 0px;
     position: relative;

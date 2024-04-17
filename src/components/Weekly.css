@@ -4,7 +4,7 @@
     grid-template-columns: auto auto auto auto auto auto auto;
     grid-template-rows: 30px 200px;
     gap: 5px;
-    background-color: #242424;
+    
     padding: 5px;
     border-radius: 10px;
     margin-top: 2px;
@@ -16,7 +16,7 @@
     outline: 10px;
     outline-color: black;
     text-align: center;
-    background-color: #213547;
+    
     border-radius: 10px;
     text-align: center;
     font-size: large;
@@ -25,13 +25,23 @@
   
 .grid-tasks {
   background-color: #213547;
-  border-radius: 10px;
+  outline: hwb(0 11% 89%) solid 2px;
+  border-radius: 2px;
   text-align: center;
-  margin-top: 18px;
+  margin-top: 15px;
   font-size: medium;
   font: weight 200px; ;
-  height: 200px;
+  height: 230px;
   overflow: auto;
+  margin-right: 2px;
+  
+  
+}
+.grid-tasks ul{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.178);
 }
 .gridbox {
   display: block;
@@ -41,12 +51,18 @@
   margin-top: 2rem;
 }
 .date-info {
+  outline: hwb(0 11% 89%) solid 2px;
+  font-weight:500;
   background-color: #213547;
-  font-weight: bold;
-  border-radius: 10px;
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.178);
+  margin-right: 2px;
+  border-radius: 2px;
+  
+  
 }
 .today{
-  color: red;
+  color: rgb(253, 255, 118);
+  
 }
 .navigation-buttons {
   display: flex;

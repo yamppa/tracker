@@ -10,7 +10,8 @@ import ToDoList from './components/ToDoList.jsx'
 
 const css = `
 .my-today{
-  color:red
+  color:rgb(253, 255, 118);
+  background-color: #303030 
 }
 .my-selected{
   border: 2px solid white;

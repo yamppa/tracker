@@ -3,6 +3,7 @@ import "./ToDoList.css";
 import TaskMenu from './TaskMenu.jsx';
 import IconCheckmark from './icons/IconChechmark.jsx';
 import Weekly from './Weekly.jsx';
+import IconTrashFill from './icons/IconTrashFill.jsx';
 
 function ToDoList(props) {
     const [tasks, setTasks] = useState([]);

@@ -1,6 +1,3 @@
-// icon:cigarette | Lucide https://lucide.dev/ | Lucide
-import * as React from "react";
-
 function IconCigarette(props) {
   return (
     <svg

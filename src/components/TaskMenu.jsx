@@ -28,6 +28,22 @@ import IconStock from './icons/IconStock';
 import IconWaterSharp from './icons/IconWaterSharp';
 import IconWeightLifter from './icons/IconWeightLifter';
 import IconMoneyBill1 from './icons/IconMoneyBill1';
+import IconGraphUpArrow from './icons/IconGraphUpArrow';
+import IconSprout from './icons/IconSprout';
+import IconHandHoldingDroplet from './icons/IconHandHoldingDroplet';
+import IconShowerHead from './icons/IconShowerHead';
+import IconDental from './icons/IconDental';
+import IconLotionOutline from './icons/IconLotionOutline';
+import IconPersonRunning from './icons/IconPersonRunning';
+import IconPersonWalking from './icons/IconPersonWalking';
+import IconGym from './icons/IconGym';
+import IconTennis from './icons/IconTennis';
+import IconSleep from './icons/IconSleep';
+import IconStar from './icons/IconStar';
+import IconFlowerTulip from './icons/IconFlowerTulip';
+import IconBxTask from './icons/IconBxTask';
+
+
 
 function TaskMenu({addTask, date}) {
   const [open, setOpen] = useState(false);
@@ -120,22 +136,22 @@ function DropdownMenu( {addTask, date, setOpen}) {
             Mental Health
           </DropdownItem>
           <DropdownItem
-            leftIcon="🦧"
+            leftIcon={<IconSprout/>}
             rightIcon=""
             goToMenu="growth">
             Growth
           </DropdownItem>
           <DropdownItem
-            leftIcon="🚬"
-            rightIcon="🙌"
+            leftIcon={<IconGraphUpArrow/>}
+            rightIcon=""
             goToMenu="productivity">
             Productivity
           </DropdownItem>
           <DropdownItem
-            leftIcon="🚬"
-            rightIcon="🙌"
-            goToMenu="own">
-            Make own
+            leftIcon={<IconAddSmall/>}
+            rightIcon=""
+            goToMenu="">
+            Add task
           </DropdownItem>
 
         </div>
@@ -196,7 +212,7 @@ function DropdownMenu( {addTask, date, setOpen}) {
             <h2>Exercise</h2>
           </DropdownItem>
           <DropdownItem 
-            leftIcon="">
+            leftIcon={<IconPersonRunning/>} >
                <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Exercise");
@@ -205,7 +221,7 @@ function DropdownMenu( {addTask, date, setOpen}) {
                 Exercise
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconPersonWalking/>} >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Walk");
@@ -214,7 +230,7 @@ function DropdownMenu( {addTask, date, setOpen}) {
                 Walk
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconGym/>} >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Gym");
@@ -223,7 +239,7 @@ function DropdownMenu( {addTask, date, setOpen}) {
                 Gym
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconTennis/>} >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Sports");
@@ -246,7 +262,7 @@ function DropdownMenu( {addTask, date, setOpen}) {
             <h2>Hygiene</h2>
           </DropdownItem>
           <DropdownItem 
-            leftIcon="">
+            leftIcon={<IconHandHoldingDroplet/>} >
                <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Wash hands");
@@ -255,7 +271,7 @@ function DropdownMenu( {addTask, date, setOpen}) {
                 Wash hands
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconShowerHead/>} >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Showering");
@@ -264,7 +280,7 @@ function DropdownMenu( {addTask, date, setOpen}) {
                 Showering
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconDental/>} >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Brush teeth");
@@ -273,7 +289,7 @@ function DropdownMenu( {addTask, date, setOpen}) {
                 Brush teeth
                 </button>
           </DropdownItem>
-          <DropdownItem leftIcon="">
+          <DropdownItem leftIcon={<IconLotionOutline/>} >
           <button 
                 className="dropdown-button" 
                 onClick={() => {addTask("Skincare");
@@ -296,10 +312,10 @@ function DropdownMenu( {addTask, date, setOpen}) {
             <h2>Sleep</h2>
           </DropdownItem>
           <DropdownItem 
-            leftIcon="">
+            leftIcon={<IconSleep/>} >
                <button 
                 className="dropdown-button" 
-                onClick={() => {addTask("set timer");
+                onClick={() => {addTask("Set Timer");
                   setOpen(false);}}
                   >
                 Set timer
@@ -424,13 +440,57 @@ function DropdownMenu( {addTask, date, setOpen}) {
         onEnter={calcHeight}>
         <div className="menu">
           <DropdownItem goToMenu="main" leftIcon={<IconArrowBackOutline/>}>
-            <h2>Mental</h2>
+            <h2>Mental Health</h2>
           </DropdownItem>
-          <DropdownItem leftIcon="" >Mindfulness</DropdownItem>
-          <DropdownItem leftIcon={<IconPeople/>}>Relationships</DropdownItem>
-          <DropdownItem leftIcon={<IconFrog/>} >Self-awareness</DropdownItem>
-          <DropdownItem leftIcon={<IconBrush/>} >Creative outlets</DropdownItem>
-          <DropdownItem leftIcon="">Self worth</DropdownItem>
+          <DropdownItem leftIcon={<IconFlowerTulip/>} >
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Mindfulness");
+                  setOpen(false);}}
+                  >
+                Mindfulnesss
+                </button>
+          
+          </DropdownItem>
+          <DropdownItem leftIcon={<IconPeople/>}>
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Relationships");
+                  setOpen(false);}}
+                  >
+                Relationships
+                </button>
+          
+          </DropdownItem>
+          <DropdownItem leftIcon={<IconFrog/>} >
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Self-awareness");
+                  setOpen(false);}}
+                  >
+                Self-awareness
+                </button>
+          </DropdownItem>
+
+          <DropdownItem leftIcon={<IconBrush/>} >
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Creative");
+                  setOpen(false);}}
+                  >
+                Creative outlets
+                </button>
+          </DropdownItem>
+          
+          <DropdownItem leftIcon={<IconMirror/>}>
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Self worth");
+                  setOpen(false);}}
+                  >
+                Self worth
+                </button>
+          </DropdownItem>
         </div>
       </CSSTransition>
 
@@ -444,11 +504,55 @@ function DropdownMenu( {addTask, date, setOpen}) {
           <DropdownItem goToMenu="main" leftIcon={<IconArrowBackOutline/>}>
             <h2>Growth</h2>
           </DropdownItem>
-          <DropdownItem leftIcon={<IconStock/>} >Self improvement</DropdownItem>
-          <DropdownItem leftIcon="🐸">Goals</DropdownItem>
-          <DropdownItem leftIcon={<IconNotebookEditOutline/>} >Journaling</DropdownItem>
-          <DropdownItem leftIcon={<IconButterflyOutline/>} >Mindset</DropdownItem>
-          <DropdownItem leftIcon={<IconMirror/>}>Self-image </DropdownItem>
+          <DropdownItem leftIcon={<IconStock/>} >
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Self improvement");
+                  setOpen(false);}}
+                  >
+                Self improvement
+                </button>
+          </DropdownItem>
+
+          <DropdownItem leftIcon={<IconStar/>} >
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Goals");
+                  setOpen(false);}}
+                  >
+                Goals
+                </button>
+          </DropdownItem>
+
+          <DropdownItem leftIcon={<IconNotebookEditOutline/>} >
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Journaling");
+                  setOpen(false);}}
+                  >
+                Journaling
+                </button>
+          </DropdownItem>
+
+          <DropdownItem leftIcon={<IconButterflyOutline/>} >
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Mindset");
+                  setOpen(false);}}
+                  >
+                Mindset
+                </button>
+          </DropdownItem>
+
+          <DropdownItem leftIcon={<IconMirror/>}>
+          <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Self-image");
+                  setOpen(false);}}
+                  >
+                Self-image
+                </button>
+          </DropdownItem>
         </div>
       </CSSTransition>
 
@@ -463,23 +567,39 @@ function DropdownMenu( {addTask, date, setOpen}) {
             <h2>Productivity</h2>
           </DropdownItem>
           <DropdownItem 
-          leftIcon="">
-            Chores
+          leftIcon={<IconBxTask/>} >
+            
+            <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("Chores");
+                  setOpen(false);}}
+                  >
+                Chores
+                </button>
             </DropdownItem>
           <DropdownItem 
           leftIcon={<IconBook/>}
           >
-            School/Work
+            
+            <button 
+                className="dropdown-button" 
+                onClick={() => {addTask("School/Work");
+                  setOpen(false);}}
+                  >
+                School/Work
+                </button>
             </DropdownItem>
           <DropdownItem 
           leftIcon={<IconArrowsRotate/>}
           goToMenu="habits">
             Habits
+            
             </DropdownItem>
           <DropdownItem 
           leftIcon={<IconMoneyBill1/>}
           goToMenu="finance">
             Personal Finance
+            
             </DropdownItem>
         </div>
       </CSSTransition>
